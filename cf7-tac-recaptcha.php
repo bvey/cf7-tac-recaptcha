@@ -3,6 +3,12 @@
  * Plugin Name: Contact Form 7 reCAPTCHA for RGPD
  */
 
+// Check if get_plugins() function exists. This is required on the front end of the
+// site, since it is in a file that is normally only loaded in the admin.
+if ( ! function_exists( 'get_plugins' ) ) {
+    require_once ABSPATH . 'wp-admin/includes/plugin.php';
+}
+
 add_action('wp_footer', function () {
     $handle = null;
     foreach (['wpcf7-recaptcha', 'wpcf7-recaptcha-controls'] as $value) {
